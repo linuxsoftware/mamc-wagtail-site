@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load events_tags wagtailcore_tags wagtailimages_tags static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'events/css/calendar.css' %}">
+{% endblock %}
+
+{% block body_class %}CalendarPage{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <div class="page-heading">
+      <h2>{{ self.title }}</h2>
+    </div>
+    <div class="content-inner">
+      {{ self.intro|richtext }}
+      <table class="calendar">
+        <thead>
+          <tr class="heading">
+            <th colspan="7" class="month">
+              <span class="month-heading">
+                <a title="Previous month" href="{{ prevMonthUrl }}">&lt;</a>
+                <div class="month-name">{{ monthName }}</div>
+                <a title="Next month" href="{{ nextMonthUrl }}">&gt;</a>
+              </span>
+              <span class="year-heading">
+                <a title="Previous year" href="{{ prevYearUrl }}">&lt;</a>
+                <div class="year-number">{{ year }}</div>
+                <a title="Next year" href="{{ nextYearUrl }}">&gt;</a>
+              </span>
+            </th>
+          </tr>
+          <tr>
+            <th class="sun">Sun</th>
+            <th class="mon">Mon</th>
+            <th class="tue">Tue</th>
+            <th class="wed">Wed</th>
+            <th class="thu">Thu</th>
+            <th class="fri">Fri</th>
+            <th class="sat">Sat</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for week in events %}
+          <tr>
+            {% for evod in week %}
+              {% include "events/includes/calendar_day.html" %}
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {% include "includes/related_links.html" with related_links=self.related_links.all only %}
+  {% endblock %}

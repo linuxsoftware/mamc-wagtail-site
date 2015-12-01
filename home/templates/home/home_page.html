@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load home_tags events_tags static wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/locationmap.css' %}">
+{% endblock %}
+
+{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
+
+{% block content %}
+  {% image self.banner_image fill-1400x650 as banner %}
+  <section id="banner"
+           class="bg-image" 
+           style="background-image: url({{ banner.url }});">
+    <section id="welcome">
+      {{ self.welcome|richtext }}
+    </section>
+  </section>
+  <section id="highlights">
+<!-- 
+    {% for highlight in self.highlights.all %}
+      {% if highlight.page %}
+        --><a href="{{ highlight.page.url }}" class="highlight">
+          {% include "home/includes/highlight.html" %}
+        </a><!--
+      {% else %}
+        --><div class="highlight">
+          {% include "home/includes/highlight.html" %}
+        </div><!--
+      {% endif %}
+    {% endfor %} 
+-->
+  </section>
+  <section id="main-info" class="clearfix">
+    <div class="info-inner">
+      {{ self.content|richtext }}
+    </div>
+    {% events_this_week %}
+  </section>
+  <section id="location">
+    {% include "home/includes/locationmap.html" only %}
+  </section>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/home/js/vendor/ie10-viewport-bug-workaround.js"></script>
+    <script src="/static/home/js/vendor/moment.js"></script>
+    {% get_google_maps_key as google_maps_key %}
+    <script src="//maps.googleapis.com/maps/api/js?v=3.21{% if google_maps_key %}&key={{ google_maps_key }}{% endif %}&region=nz&libraries=places"></script>
+    {# <script src="//maps.googleapis.com/maps/api/js?v=3.22{% if google_maps_key %}&key={{ google_maps_key }}{% endif %}&region=nz&libraries=places"></script> #}
+    <script src="/static/home/js/locationmap.js"></script>
+{% endblock %}

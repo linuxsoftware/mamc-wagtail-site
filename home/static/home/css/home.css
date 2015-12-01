@@ -1,0 +1,234 @@
+/*-----------------------------------------------------------------------*/
+/* Home page */
+/*-----------------------------------------------------------------------*/
+/* color scheme
+ #00448f
+ #0d6759
+ #228b22
+ #114611
+ #a0c55f
+ #111111
+ #f8f0f0
+ #b30000   Free Speech
+ */
+.bg-image {
+    margin: 0;
+    background-repeat:     no-repeat;
+    background-attachment: fixed;
+    background-position:   left top;
+    background-repeat:     no-repeat;
+    background-color:      #f8f0f0;
+}
+@media (min-width:1400px) {
+    .bg-image {
+        background-size:   100% auto;
+    }
+}
+header .top-details {
+    float:                 left;
+}
+header .address {
+    color:                 white;
+    background:            rgba(34, 139, 34, 0.7)
+}
+#banner {
+    height:                440px;
+    position:              relative;
+}
+#welcome {
+    position:              absolute;
+    padding:               20px 50px;
+    margin:                0;
+    bottom:                40px;
+    left:                  50px;
+    width:                 60%;
+    min-width:             300px;
+    font-size:             20px;
+    background:            rgba(190,190,180, 0.8);
+    color:                 #114611;
+    border-radius:         4px;
+}
+#highlights {
+    padding:               60px 20px 25px 50px;
+    margin:                0;
+    /* background:            #0d6759; */
+    background:            #228b22;
+    min-height:            440px;
+    text-align:            center;
+}
+#highlights .highlight {
+    padding:               0;
+    margin:                0px 30px 30px 0 ;
+    display:               inline-block;
+    width:                 260px;
+    height:                285px;
+    background:            white;   
+    border-radius:         4px;
+    overflow:              hidden;
+    box-shadow:            0 4px 10px rgba(150, 150, 150, 0.2);
+    text-align:            left;
+
+}
+a.highlight:visited,
+a.highlight:hover,
+a.highlight:active,
+a.highlight {
+    color:                 #114611;
+    text-decoration:       none;
+    outline:               0;
+}
+a.highlight:hover h2 {
+    text-decoration:       underline;
+}
+a.highlight:active h2 {
+    color:                 white;
+    background-color:      #114611;
+    text-decoration:       underline;
+}
+#highlights .highlight-details {
+    padding:               6px 12px 10px 12px;
+    margin:                0;
+    line-height:           19px;
+}
+#main-info {
+    padding:               30px 15px 30px 20px;
+    margin:                0 0 0 0;
+    background:            #f9f8f7;
+    min-height:            440px;
+    vertical-align:        top;
+}
+#main-info .info-inner {
+    float:                 left;
+    padding:               20px 29px 20px 29px;
+    margin:                0 0px 30px 30px;
+    color:                 #114611;
+    background:            white;
+    width:                 calc(100% - 440px);
+    min-height:            300px;
+    min-width:             350px;
+    border-radius:         4px;
+    box-shadow:            0 4px 10px rgba(150, 150, 150, 0.2);
+}
+@media (max-width:837px) {
+    #main-info .info-inner {
+        float:             none;
+        width:             initial;
+        margin-right:      30px;
+    }
+}
+
+.events-this-week {
+    float:                 left;
+    width:                 350px;
+    font-size:             12px;
+    margin:                0 30px 0 30px;
+    background:            white;   
+    border-radius:         4px;
+    overflow:              hidden;
+    box-shadow:            0 4px 10px rgba(150, 150, 150, 0.2);
+}
+.events-this-week h3 {
+    font-weight:           bold;
+    font-size:             18px;
+    text-align:            center;
+    padding:               5px;
+    background:            #0D6759;
+    color:                 white;
+}
+.events-this-week .day {
+    margin:                0;
+    padding:               4px 10px 4px 20px;
+}
+.events-this-week .events .day:first-child {
+    padding-top:           10px;
+}
+.events-this-week .day.in-past {
+}
+.events-this-week .day.today {
+    background:            #a0c55f;
+    padding:               8px 10px 6px 20px;
+}
+.events-this-week .event-day {
+    display:               inline-block;
+    vertical-align:        top;
+    width:                 110px;
+    font-size:             14px;
+    color:                 #444;
+}
+.events-this-week .event-day h4 {
+    font-size:             14px;
+    font-weight:           bold;
+    margin:                0;
+    padding:               0;
+    color:                 #114611;
+}
+.events-this-week .days-events {
+    display:               inline-block;
+    width:                 200px;
+    padding:               3px 0 0 0;
+}
+.events-this-week .days-events .holiday {
+    display:               block;
+    font-size:             12px;
+    line-height:           16px;
+    color:                 #b30000;
+}
+.events-this-week .days-events .event {
+    display:               block;
+    font-size:             12px;
+    line-height:           16px;
+    padding-left:          40px;
+    text-indent:           -40px;
+}
+.events-this-week .days-events a.event {
+    color:                 #114611;
+}
+.events-this-week .days-events a.event:active {
+    background:            transparent;
+}
+.events-this-week .links {
+    height:                30px;
+    position:              relative;
+}
+.events-this-week .links .calendar {
+    position:              absolute;
+    bottom:                5px;
+    left:                  95px;
+}
+.events-this-week .links .events {
+    position:              absolute;
+    bottom:                5px;
+    right:                 100px;
+}
+#location {
+    color:                 #111;
+    background:            #cdcdcd;
+    border-top:            solid 1px #cdcdcd;
+}
+
+@media (max-width:360px) {
+#welcome {
+    bottom:                20px;
+    left:                  30px;
+}
+#highlights {
+    padding:               60px 0px 25px 30px;
+}
+#main-info {
+    padding:               30px 0px 30px 0px;
+}
+#main-info .info-inner {
+    margin:                0 0px 30px 20px;
+    padding:               20px 19px 20px 19px;
+    min-width:             320px;
+    width:                 320px;
+}
+
+.events-this-week {
+    margin:                0 30px 0 20px;
+    width:                 320px;
+}
+.events-this-week .event-day {
+    width:                 80px;
+}
+}

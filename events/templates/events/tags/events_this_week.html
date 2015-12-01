@@ -1,0 +1,37 @@
+<div class="events-this-week">
+  <h3>This Week</h3>
+  <div class="events">
+    {% for evod in events %}
+      <div class="day {% if evod.date < today %} in-past{% elif evod.date == today %} today{% endif %}">
+        <div class="event-day" {% if evod.date == today %}title="Today"{% endif %}>
+            <h4>{{evod.date|date:"l"}}</h4>
+            {{evod.date|date:"jS M"}}
+        </div>
+        <div class="days-events">
+          {% if evod.holiday %}
+            <div class="holiday">
+              {{ evod.holiday }}
+            </div>
+          {% endif %}
+          {% for event in evod.days_events %}
+            <a href="{{event.url}}" class="event">
+              {% if event.time_from %}
+                {{event.time_from|time:"P"}}
+              {% endif %}
+              {{event.title}}
+            </a>
+          {% endfor %}
+          {% for event in evod.continuing_events %}
+            <a href="{{event.url}}" class="event event-continues">
+              {{event.title}}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="links">
+    <a class="calendar" href="/calendar">Calendar</a>
+    <a class="events" href="/events">Events</a>
+  </div>
+</div>

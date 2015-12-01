@@ -1,0 +1,51 @@
+{% load home_tags %}
+
+<div id="location-map">
+</div>
+<div id="map-focusinfo-src" style="display:none">
+  <div id="map-focusinfo">
+    <div class="title">
+      <div class="line1">Mount Albert</div>
+      <div class="line2">Methodist Church</div>
+    </div>
+    <div class="details">
+      <img class="thumb" src="/static/home/img/church-front-thumb.png" />
+      <div class="address">
+        <span class="street">831 New North Road</span>,
+        <span class="suburb">Mt. Albert</span>,
+        <span class="city">Auckland</span>.
+      </div>
+      <div class="phone">ph. 09-849 5174.</div>
+      <div class="email"><a href="mailto:info@mamc.nz">info@mamc.nz</a></div>
+      <p></p>
+    </div>
+  </div>
+</div>
+<div id="map-directions" style="display:none">
+  <a class="close" href="javascript:void(0)"><img src="/static/home/img/closex.png" /></a>
+  <div class="inner">
+    <h4>Directions</h4>
+    <div class="field">
+      <label>By:</label>
+      <div class="travel-mode selected-travel-mode travel-by-car" title="Car"></div>
+      <div class="travel-mode travel-by-transit" title="Bus/Train"></div>
+      <div class="travel-mode travel-by-bicycle" title="Bicycle"></div>
+      <div class="travel-mode travel-by-foot" title="Walking"></div>
+    </div>
+    <div class="field transit-options">
+      <select id="transit-time-option">
+        <option value="departureTime">Leave After</option>
+        <option value="arrivalTime">Arrive Before</option>
+      </select>
+      <select id="transit-date">
+      </select>
+      <input id="transit-time" name="transit-time" type="text" />
+    </div>
+    <div class="field" id="travel-from">
+      <label for="map-directions-origin">From:</label>
+      <input id="map-directions-origin" type="text" name="origin" value=""/>
+    </div>
+    <div id="map-directions-steps">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{% if evod %}
+<td class="{{ evod.weekday }} day{% if evod.date == today %} today{% elif evod.date == yesterday %} yesterday{% elif evod.date == lastweek %} lastweek{% endif %}">
+  {% if evod.holiday %}
+  <div class="day-title holiday">
+      <h4>{{ evod.date.day }}</h4>
+      <div class="holiday-name">
+      {{ evod.holiday }}
+      </div>
+  </div>
+  {% else %}
+  <div class="day-title">
+      <h4>{{ evod.date.day }}</h4>
+  </div>
+  {% endif %}
+
+  <div class="days-events">
+    {% for event in evod.days_events %}
+      <a href="{{event.url}}" class="event">
+        {% if event.time_from %}<span class="event-time">{{event.time_from|time:"P"}} </span>{% endif %}<span class="event-title">{{event.title}}</span>
+      </a>
+    {% endfor %}
+    {% for event in evod.continuing_events %}
+      <a href="{{event.url}}" class="event event-continues">
+        {{event.title}}
+      </a>
+    {% endfor %}
+  </div>
+</td>
+{% else %}
+<td class="noday">&nbsp;</td>
+{% endif %}

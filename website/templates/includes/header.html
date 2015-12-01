@@ -1,0 +1,22 @@
+{% load website_tags static %}
+<header>
+  <div class="title">
+    <img class="logo" src="{% static 'img/methodist_logo.png' %}" alt="" />
+    <h1><span class="mt-albert">Mount Albert</span>
+        <span class="methodist">Methodist Church</span></h1>
+  </div>
+
+  {% block top_menu %}
+  {% website_menu %}
+  {% endblock top_menu %}
+
+  {% block top_details %}
+  <div class="top-details">
+    {% include "includes/search_box.html" %}
+    <a class="address" href="/#location"><span 
+            class="street">831 New North Road,</span>
+      <span class="city">Auckland.</span></a>
+  </div>
+  {% endblock top_details %}
+</header>
+

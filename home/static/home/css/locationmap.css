@@ -1,0 +1,159 @@
+/*-----------------------------------------------------------------------*/
+/* Location Map */
+/*-----------------------------------------------------------------------*/
+/* color scheme
+ #00448f
+ #228B22
+ #114611
+ #111111
+ #f8f0f0
+ */
+#location-map {
+    height:                440px;
+    width:                 100%;
+    margin:                0;
+    padding:               0;
+}
+#map-focusinfo-src {
+    display:               none;
+}
+#map-focusinfo {
+    padding:               0px;
+    margin:                0 0 -10px;
+}
+#map-focusinfo .title {
+    padding:               0 1px;
+    color:                 #00448f;
+    font-family:           "Crimson Text", serif;
+    text-align:            center;
+    font-size:             25px;
+    line-height:           22px;
+}
+#map-focusinfo .details {
+    border-top:            solid 1px #228b22;
+    padding:               4px 1px 0 1px;
+}
+#map-focusinfo .details .street,
+#map-focusinfo .details .suburb,
+#map-focusinfo .details .city {
+    white-space:           nowrap;
+}
+#map-focusinfo img {
+    float: right;
+    width: 90px;
+}
+
+#map-directions {
+    width:                 320px;
+    height:                320px;
+    padding:               10px;
+    margin:                0px;
+    font-size:             12px;
+    float:                 left;
+}
+#map-directions a.close {
+    position:              absolute;
+    top:                   5px;
+    right:                 35px;
+    line-height:           20px;
+    text-decoration:       none;
+    outline:               0;
+    font-size:             150%;
+    color:                 #ccc;
+    z-index:               200;
+    cursor:                pointer;
+}
+#map-directions a.close:active  {
+    background-color:      white;
+}
+#map-directions .inner {
+    /*
+    background:            rgba(249, 248, 247, 0.75);
+    width:                 300px;
+    height:                300px;
+    border:                1px solid #ccc;
+    box-shadow:            0 2px 6px rgba(0, 0, 0, 0.3);
+    font-size:             12px;
+    float:                 left;
+    */
+    position:              absolute;
+    top:                   0px;
+    left:                  0px;
+    width:                 300px;
+    height:                300px;
+    background:            rgba(249, 248, 247, 0.75);
+    border:                1px solid #ccc;
+    box-shadow:            0 2px 6px rgba(0, 0, 0, 0.3);
+    padding:               5px 5px 5px 10px;
+    margin:                0px;
+    overflow-x:            hidden;
+    overflow-y:            auto;
+}
+#map-directions h4 {
+    font-size:             15px;
+}
+.field {
+    margin-bottom:         5px;
+}
+.field label {
+    display:               inline-block;
+    font-weight:           bold;
+    width:                 40px;
+    vertical-align:        top;
+    font-size:             14px;
+}
+.travel-mode {
+    display:               inline-block;
+    border:                1px solid transparent;
+    width:                 20px;
+    height:                20px;
+    margin:                0 5px;
+    background:            url(/static/home/img/travel_icons.png);
+    background-repeat:     no-repeat;
+}
+.travel-mode:hover {
+    border:                1px solid #ccc;
+}
+.travel-by-car     { background-position: 0 -40px;  }
+.travel-by-transit { background-position: 0 -80px;  }
+.travel-by-bicycle { background-position: 0 -160px; }
+.travel-by-foot    { background-position: 0 -120px; }
+
+.selected-travel-mode { border: 1px solid #3a8fdf; }
+ 
+.travel-by-car.selected-travel-mode     { background-position: 0 -60px;  }
+.travel-by-transit.selected-travel-mode { background-position: 0 -100px; }
+.travel-by-bicycle.selected-travel-mode { background-position: 0 -180px; }
+.travel-by-foot.selected-travel-mode    { background-position: 0 -140px; }
+
+#map-directions-origin {
+    display:               inline-block;
+    border:                1px solid transparent;
+    border-radius:         2px 0 0 2px;
+         box-sizing:       border-box;
+    -moz-box-sizing:       border-box;
+    height:                20px;
+    outline:               none;
+    background-color:      #fff;
+    padding:               0 11px 0 13px;
+    width:                 240px;
+    font-size:             14px;
+    text-overflow:         ellipsis;
+}
+.transit-options {
+    display:               none;
+}
+#transit-time {
+    width:                 60px;
+}
+#map-directions-origin:focus {
+    border-color:          #4d90fe;
+}
+#map-directions-steps .adp {
+    background:            rgb(249, 248, 247);
+    padding:               5px;
+    font-size:             13px;
+}
+#map-directions-steps .adp-legal {
+    font-size:          9px;
+}

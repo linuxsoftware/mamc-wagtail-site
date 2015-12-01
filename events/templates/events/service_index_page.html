@@ -1,0 +1,25 @@
+{% extends "website/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+  <div class="body-content">
+    <div class="content-inner">
+      {{ self.intro|richtext }}
+    </div>
+  </div>
+  <div class="body-content">
+    <div class="content-inner">
+      <h2>Services</h2>
+      {# Uses method defined in models.py to retrieve all upcoming services #}
+      {% with self.services.all as services %}
+        {% if services %}  
+          <div class="list-group">
+            {% for event in services %}
+              {% include "events/includes/event_list_item.html" %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+{% endblock %}

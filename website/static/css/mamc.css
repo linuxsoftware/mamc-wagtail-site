@@ -1,0 +1,462 @@
+/*-----------------------------------------------------------------------*/
+/* Site wide style                                                       */
+/*-----------------------------------------------------------------------*/
+@import url(//fonts.googleapis.com/css?family=Crimson+Text:700);
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+
+/* color scheme
+ #00448f   Smalt
+ #0d6759   Jewel
+ #228B22   Forest
+ #114611   Crusoe
+ #eadc18   Kowhai
+ #111111   Midnight
+ #f7f7f0   Alabaster
+ #b30000   Free Speech
+ */
+
+/*--HTML/Body----------------------------------------------------------------*/
+html {
+    height:                100%;
+    background:            #f7f7f0;
+    color:                 #114611;
+}
+body { 
+    background:            #f7f7f0;
+    color:                 #114611;
+    margin:                0;
+    border:                0;
+    padding:               0;
+    height:                100%;
+    font-size:             medium;
+    font-family:           Arial,sans-serif;
+}
+#wrapper {
+    /* sticky footer, fluid, although with a min-height */
+    position:              relative;
+    width:                 100%;
+    min-height:            95%;
+    min-height:            calc(100% - 150px);
+}
+footer {
+    min-height:            150px;
+}
+
+/*--Headings-----------------------------------------------------------------*/
+h1 {
+    margin:                0px;
+    padding:               0px 0 10px 0;
+    letter-spacing:        -0.3px;
+    font-family:           Verdana,Geneva,sans-serif;
+    font-size:             26px;
+    color:                 darkgreen;
+}
+h2 {
+    margin:                0px;
+    padding:               0px 0 10px 0;
+    font-family:           Verdana,Geneva,sans-serif;
+    font-size:             20px;
+    color:                 darkgreen;
+}
+h3 {
+    margin:                0px;
+    padding:               0px 0 5px 0;
+    letter-spacing:        -0.3px;
+    font-family:           Verdana,Geneva,sans-serif;
+    font-size:             14px;
+    color:                 #333;
+}
+h4 {
+    margin:                0;
+    padding:               5px 0 5px 0;
+    font-family:           Verdana,Geneva,sans-serif;
+    font-size:             14px;
+}
+
+/*--Links----------------------------------------------------------------*/
+a, a:link     {
+    color: #114611;
+    text-decoration: none; 
+}
+a:visited  {  
+    color: #114611;
+}
+a:hover    { 
+    color: #114611;
+    text-decoration: underline; 
+}
+a:active   { 
+    background-color:   #114611;
+    color:              white; 
+    text-decoration:    underline; 
+}
+a:hover.imglink,
+a.imglink { 
+    background-color:      transparent; 
+    text-decoration:       none;
+}
+a img {
+    border:                none;
+}
+
+/*--Header-------------------------------------------------------------------*/
+header {
+    position:              relative;
+    margin:                0;
+    padding:               0;
+    /*
+    background-image:      url(/static/img/dove.png);
+    background-repeat:     no-repeat;
+    background-position:   20px 20px;
+    */
+    z-index:               2;
+}
+header .title {
+    padding:               10px 35px 2px 95px;
+    background-color:      #00448f;
+}
+header .title img.logo {
+    position:              absolute;
+    left:                  3px;
+    top:                   0px;
+}
+header .title h1 {
+    text-align:            center;
+    margin:                0 0;
+    padding:               0px;
+    color:                 white;
+    font-weight:           700;
+    line-height:           39px;
+    font-size:             41px;
+    font-family:           "Crimson Text", serif;
+}
+header .title h1 .mt-albert,
+header .title h1 .methodist {
+    white-space:           nowrap;
+}
+@media (max-width:490px) {
+header .title h1 {
+    font-size:             32px;
+    font-size:             8vw;
+}
+}
+header h1 a:hover {
+    color:                 white;
+    text-decoration:       none; 
+}
+header nav {
+    margin:                0;
+    padding:               2px 30px 0px 90px;
+    text-align:            center;
+    background-color:      #228B22;
+}
+header nav a,
+header nav a:visited,
+header nav a:link {
+    color:                 #bbdd78;
+}
+header nav a {
+    display:               inline-block;
+    padding:               5px 10px 4px 10px;
+    margin-bottom:         4px;
+    text-decoration: none; 
+    /* font-weight:           bold; */
+    font-size:             14px;
+    line-height:           14px;
+    cursor:                pointer;
+}
+header nav a:hover {
+    color:                 white;
+    text-decoration:       underline;
+}
+
+header .search-box {
+    position:              relative;
+    display:               block;
+    float:                 right;
+    height:                34px;
+    width:                 220px;
+    padding:               10px;
+    margin:                -5px 20px 5px 20px;
+    background:            #eee;
+    border-radius:         10px;
+}
+header .search-box input {
+    position:              absolute;
+    top:                   5px;
+    left:                  15px;
+    margin:                0;
+    padding:               0;
+    color:                 #457;
+    background:            transparent;
+    border:                none;
+    outline:               none;
+    font-size:             16px;
+    width:                 180px;
+}
+header .search-box .glyphicon-search {
+    position:              absolute;
+    top:                   6px;
+    right:                 10px;
+    color:                 #babaaa;
+    font-size:             20px;
+}
+
+header .top-details {
+    width:                  100%;
+    margin:                 5px 0 0 0px;
+    padding:                10px 0 10px 20px;
+}
+header .address {
+    margin:                0;
+    padding:               5px 20px;
+    border-radius:         10px;
+    color:                 #114611;
+    font-weight:           normal;
+    font-size:             18px;
+    font-family:           Arial,sans-serif;
+    outline:               0;
+}
+header .address:active { 
+    color:                 white;
+    background-color:      #114611;
+    text-decoration:       underline;
+    outline:               0;
+}
+header .address .street,
+header .address .city {
+    white-space:           nowrap;
+}
+
+/*--Footer-------------------------------------------------------------------*/
+footer {
+    position:              relative;
+    width:                 100%;
+    margin:                0;
+    padding:               1px 10px 5px 10px;
+    background-color:      #114611;
+    color:                 #f7f7f0;
+    font-size:             12px;
+
+/* Kowhai Flowers, photo by Sid Mosdell            */
+/* (https://www.flickr.com/photos/sidm/3854697514) */
+/* Licensed under Creative Commons (CC BY 2.0)     */
+    background-image:      url(/static/img/kowhai_flowers_80x100.png);
+    background-repeat:     no-repeat;
+    background-position:   10px 0px;
+}
+footer a,
+footer a:visited,
+footer a:link {
+    color:                 #bbdd78;
+}
+footer a:hover {
+    color:                 white;
+    text-decoration:       underline;
+}
+footer .back-to-top {
+    padding:               1px 0px 0 0;
+    /* width:                 100%; */
+    /* text-align:            center; */
+    font-size:             11px;
+    position:              absolute;
+    top:                   1px;
+    right:                 20px
+}
+footer .back-to-top a {
+    color:                 #f7f7f0;
+}
+footer .bottom {
+}
+footer .bottom-left {
+    margin:                0 0 0 80px;
+    padding:               10px 20px 10px 10px;
+    max-width:             45ex;
+    display: inline-block;
+    vertical-align: top;
+}
+footer .bottom-left .login {
+    padding:               0px 1px 10px 1px;
+    font-size:             14px;
+}
+
+footer .bottom-left .site-by {
+    padding:               1px 1px 1px 1px;
+}
+footer .bottom-left .powered-by {
+    padding:               1px 1px 10px 1px;
+}
+footer .bottom-left .site-by a,
+footer .bottom-left .powered-by a,
+footer .copyright a {
+    color:                 #f7f7f0;
+}
+footer .copyright {
+    padding:               1px;
+    width:                 100%;
+    text-align:            center;
+    font-size:             11px;
+}
+
+footer .site-map {
+    padding:               10px 0 0px 80px;
+    display:               inline-block;
+}
+footer .site-map .site-map-column {
+    margin:                0;
+    padding:               0 0 10px 10px;
+    float:                 left;
+    width:                 150px;
+    /* height:                110px; */
+
+}
+footer .site-map .site-map-column .site-map-item {
+    display: block
+}
+footer .site-map .site-map-item.level-1 {
+    font-weight:           bold;
+    font-size:             14px;
+    margin-top:            12px;
+    padding:               0px;
+    line-height:           16px;
+}
+footer .site-map .site-map-item.level-1:first-child {
+    margin-top:            5px;
+}
+footer .site-map .site-map-item.level-2 {
+    padding-left:          10px;
+    font-size:             12px;
+    line-height:           14px;
+}
+
+
+/*--Misc---------------------------------------------------------------------*/
+
+p {
+    margin:                0 0 10px 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content:               "";
+    display:               table;
+}
+.clearfix:after {
+    clear:                 both;
+}
+
+/* Wagtail embeds and images are included at their full width, which may    */
+/* overflow the bounds of the content container you’ve defined in your      */
+/* templates. To make images and embeds responsive – meaning they’ll resize */
+/* to fit their container - include the following CSS. */
+.responsive-object {
+    position: relative;
+}
+.responsive-object iframe,
+.responsive-object object,
+.responsive-object embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*--Wagtail Admin------------------------------------------------------------*/
+/* to indicate why you can't click around the userbar */
+#wagtail-userbar:hover {
+    background:            rgba(249, 248, 247, 0.33);
+}
+
+/*--Content -----------------------------------------------------------------*/
+.content {
+    padding:               10px 60px 20px 80px;
+    margin:                0;
+}
+.content-inner {
+    padding:               10px 0px 20px 22px;
+}
+
+.page-heading {
+    margin:                0;
+    padding:               0px 0 10px 0;
+}
+.page-heading h2 {
+    display:               inline;
+    margin:                0;
+    padding:               5px 36px 5px 35px;
+    font-size:             28px;
+    color:                 #eadc18;
+    background:            #114611;
+    border-radius:         20px;
+    font-family:           Arial,sans-serif;
+    /* text-decoration:       underline; */
+}
+
+.content a,
+.content a:link,
+.content a:visited  {  
+    color: #0d6759;
+    text-decoration: none; 
+}
+.content a:hover    { 
+    color: #0d6759;
+    text-decoration: underline; 
+}
+.content a:active   { 
+    background-color:      #114611;
+    color:                 white; 
+    text-decoration:       underline; 
+}
+
+/*--Page Index---------------------------------------------------------------*/
+.page-index {
+    border-top:            1px solid #114611;
+    padding:               30px 20px 0 20px;
+    /*
+    padding:               20px;
+    background-color:      white;
+    border-radius:         10px;
+    */
+}
+
+.page-index a,
+.page-index a:link,
+.page-index a:visited  {  
+    color: #114611;
+    text-decoration: none; 
+}
+.page-index a:hover    { 
+    color: #114611;
+    text-decoration: underline; 
+}
+.page-index a:active  { 
+    background-color:      white; 
+}
+.page-index a:active .item-heading  { 
+    color:                 white; 
+    background-color:      #114611;
+    text-decoration:       underline; 
+}
+
+.page-index .item {
+    padding:               2px 10px 1px 44px;
+    margin:                0 0 10px 0;
+    display: block;
+    background-image:      url(/static/img/scallop_shell_28x28.png);
+    background-repeat:     no-repeat;
+    background-position:   0px 0px;
+    min-height:            28px;
+}
+.page-index .item-heading {
+    display: inline;
+    font-weight:           bold;
+    font-size:             18px;
+}
+
+
+/*--Plain Page---------------------------------------------------------------*/
+/* .template-plain-text-page */
+
+/*--Stream Page--------------------------------------------------------------*/
+
