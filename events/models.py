@@ -337,6 +337,9 @@ class EventIndexPage(Page):
 # ------------------------------------------------------------------------------
 # Calendar
 # ------------------------------------------------------------------------------
+
+MonthAbbrs = list(calendar.month_abbr)
+
 class CalendarPage(Page):
     subpage_types = []
     intro = RichTextField(blank=True)
@@ -366,7 +369,7 @@ class CalendarPage(Page):
                 kwargs['year'] = value
         if len(components) > 1:
             try:
-                kwargs['month'] = calendar.month_abbr.index(components[1])
+                kwargs['month'] = MonthAbbrs.index(components[1])
             except (ValueError, TypeError):
                 with suppress(ValueError, TypeError):
                     value = int(components[1])
