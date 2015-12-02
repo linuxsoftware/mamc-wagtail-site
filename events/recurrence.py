@@ -224,9 +224,13 @@ class RecurrenceWidget(WidgetWithScript, MultiWidget):
                     wdayChoices = [day.weekday for day in value.byweekday]
             elif value.freq in (MONTHLY, YEARLY):
                 if value.byweekday:
-                    day = value.byweekday[0]
-                    dayChoice = day.weekday
-                    ordChoice = day.n or 0
+                    if len(value.byweekday) == 7 and all(not day.n for day in value.byweekday):
+                        ordChoice = _EveryDay
+                        dayChoice = _DayOfMonth
+                    elif len(value.byweekday) == 1:
+                        day = value.byweekday[0]
+                        dayChoice = day.weekday
+                        ordChoice = day.n or _EveryDay
                 elif value.bymonthday:
                     ordChoice = value.bymonthday[0]
                     if value.dtstart.day == ordChoice:
@@ -293,9 +297,7 @@ class RecurrenceWidget(WidgetWithScript, MultiWidget):
                 return int(value) if value else None
             dtstart     = dt_parse(values[0]) if values[0] else None
             frequency   = toIntOrNone(values[1])
-            interval    = toIntOrNone(values[2])
-            if interval is not None and interval <= 0:
-                interval = None
+            interval    = toIntOrNone(values[2]) or None
             #count     = toIntOrNone(values[4]) or None
             dtuntil     = dt_parse(values[5]) if values[5] else None
             ordChoice   = toIntOrNone(values[6])

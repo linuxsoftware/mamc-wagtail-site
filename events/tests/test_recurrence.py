@@ -14,7 +14,7 @@ class TestRecurrence(TestCase):
                         byweekday=[MO,TU,WE,TH,FR])
         self.assertEqual(str(rr),
                         "DTSTART:20090101\n" \
-                        "RRULE:FREQ=WEEKLY;COUNT=9;BYDAY=MO,TU,WE,TH,FR")
+                        "RRULE:FREQ=WEEKLY;WKST=SU;COUNT=9;BYDAY=MO,TU,WE,TH,FR")
         self.assertEqual(rr.count, rr.getCount())
         rr = Recurrence(dtstart=datetime(2011, 1, 1),
                         freq=DAILY,
@@ -22,7 +22,7 @@ class TestRecurrence(TestCase):
                         until=datetime(2011,1,11))
         self.assertEqual(str(rr),
                         "DTSTART:20110101\n" \
-                        "RRULE:FREQ=DAILY;INTERVAL=2;UNTIL=20110111")
+                        "RRULE:FREQ=DAILY;INTERVAL=2;WKST=SU;UNTIL=20110111")
         rr = Recurrence(dtstart=datetime(2012, 1, 1),
                         freq=YEARLY,
                         bymonth=[1,2],
@@ -30,7 +30,7 @@ class TestRecurrence(TestCase):
                         until=datetime(2012,1,31))
         self.assertEqual(str(rr),
                         "DTSTART:20120101\n" \
-                        "RRULE:FREQ=YEARLY;UNTIL=20120131;" \
+                        "RRULE:FREQ=YEARLY;WKST=SU;UNTIL=20120131;" \
                         "BYDAY=MO,TU,WE,TH,FR,SA,SU;BYMONTH=1,2")
         rr = Recurrence(dtstart=datetime(2015, 10, 1),
                         freq=MONTHLY,
@@ -38,20 +38,20 @@ class TestRecurrence(TestCase):
                         byweekday=[(SU(-1))])
         self.assertEqual(str(rr),
                         "DTSTART:20151001\n" \
-                        "RRULE:FREQ=MONTHLY;BYDAY=-1SU;BYMONTH=1,2,3,4,5,6,7,8,9,10,11")
+                        "RRULE:FREQ=MONTHLY;WKST=SU;BYDAY=-1SU;BYMONTH=1,2,3,4,5,6,7,8,9,10,11")
 
     def test_parse(self):
         rr = Recurrence("DTSTART:20090101\n" \
-                        "RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;COUNT=9")
+                        "RRULE:FREQ=WEEKLY;WKST=SU;BYDAY=MO,TU,WE,TH,FR;COUNT=9")
         self.assertEqual(rr.dtstart, datetime(2009, 1, 1))
         self.assertEqual(rr.count, 9)
         self.assertCountEqual(rr.byweekday, [MO,TU,WE,TH,FR])
 
     def test_roundtrip(self):
         rrStr = "DTSTART:20151001\n" \
-                "RRULE:FREQ=MONTHLY;BYDAY=-1SU;BYMONTH=1,2,3,4,5,6,7,8,9,10,11"
+                "RRULE:FREQ=MONTHLY;WKST=SU;BYDAY=-1SU;BYMONTH=1,2,3,4,5,6,7,8,9,10,11"
         self.assertEqual(str(Recurrence(rrStr)), rrStr)
         rrStr = "DTSTART:20141001\n" \
-                "RRULE:FREQ=MONTHLY;UNTIL=20141001;BYMONTHDAY=1,-1"   # first&last
+                "RRULE:FREQ=MONTHLY;WKST=SU;UNTIL=20141001;BYMONTHDAY=1,-1"   # first&last
         self.assertEqual(str(Recurrence(rrStr)), rrStr)
 

@@ -2,7 +2,7 @@
 # Use this for any settings that are specific to this one installation, such as developer API keys.
 # local.py should not be checked in to version control.
 
-EMBEDLY_KEY = 'get-one-from-http://embed.ly/'
+###EMBEDLY_KEY = 'get-one-from-http://embed.ly/'
 GOOGLE_MAPS_KEY = 'xxxxxxxxxxXXXXXXXxxxxxxxxxXXXXXXXxxxxXx'
 
 # It is strongly recommended that you define a SECRET_KEY here, where it won't be visible
@@ -13,8 +13,8 @@ SECRET_KEY = 'xxxxxxxXXXXXXXXxxxxxxxxXXXXXXXXXXxXXXxxxxxxxxXXXXX'
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.postgresql_psycopg2',
-        'NAME':     'blue',
-        'USER':     'blue',
+        'NAME':     'dbname',
+        'USER':     'username',
         'PASSWORD': 'xxxxxxxx',
         'HOST': '',  # Set to empty string for localhost.
         'PORT': '',  # Set to empty string for default.
