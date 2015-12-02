@@ -323,7 +323,7 @@ class RecurrenceWidget(WidgetWithScript, MultiWidget):
                     else:
                         wdayChoices = [Weekday(dayChoice, ordChoice)]
                 if frequency == YEARLY:
-                    monChoices = [toIntOrNone(values[8]) or None]
+                    monChoices = [int(values[8])]
 
             retval = Recurrence(dtstart    = dtstart,
                                 freq       = frequency,
